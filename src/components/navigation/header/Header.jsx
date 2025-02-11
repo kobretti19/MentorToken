@@ -8,6 +8,11 @@ const ROUTES = ["Home", "About", "Contact"];
 
 export default function Header() {
   const [isMobileMenuShown, setIsMobileMenuShown] = useState(false);
+  const queryParameters = new URLSearchParams(window.location.search);
+  const type = queryParameters.get("type");
+  const name = queryParameters.get("name");
+  console.log(name, type);
+
   return (
     <nav className="flex flex-wrap items-center justify-between p-10 xl:px-24">
       <LinkNav to="/">
@@ -45,7 +50,7 @@ export default function Header() {
                 className={`rounded py-2 px-3 cursor-pointer ${
                   i === 0
                     ? "bg-[#696CFF] text-white lg:bg-transparent lg:text-[#696CFF]"
-                    : "hover:bg-gray-50 hover:lg:text-[#696CFF] "
+                    : "hover:bg-gray-50 hover:lg:text-[#696CFF] hover:scale-110 transition-all easy-in-out"
                 }`}
                 key={i}
               >
@@ -58,7 +63,9 @@ export default function Header() {
       {/* { Login } */}
       <div className="absolute top-16 left-1/4 lg:static">
         <div className="items-center justify-between gap-6  shaddow-md text-lg w-auto hidden lg:flex">
-          <LinkNav className="hover:text-[#696CFF]">Login</LinkNav>
+          <LinkNav className="hover:text-[#696CFF] hover:scale-110 transition-all easy-in-out ">
+            Login
+          </LinkNav>
           <div className="text-white  justify-around gap-4 items-center bg-[#696cff] px-3 hidden lg:flex rounded-md py-2 hover:scale-110 hover:bg-[#5d5fd6] transition-all easy-in-out ">
             <IoArrowForwardSharp />
             <button>Get Started</button>

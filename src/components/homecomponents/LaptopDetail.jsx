@@ -19,7 +19,9 @@ export default function LaptopDetail() {
         </p>
         <div className="flex items-center gap-4 lg:pt-10">
           <GetStartedButton btnText="Get started" />
-          <Link className="hover:text-[#696CFF]">Get in Touch</Link>
+          <Link className="hover:text-[#696CFF] hover:scale-110 transition-all easy-in-out">
+            Get in Touch
+          </Link>
         </div>
       </div>
 

@@ -4,9 +4,9 @@ import Footer from "../components/navigation/footer/Footer";
 
 export default function RootLayout() {
   return (
-    <div>
+    <div className="font-manrope">
       <Header />
-      <main className="lg:w-[95%] w-[95%] mx-auto font-manrope">
+      <main className="lg:w-[95%] w-[95%] mx-auto ">
         <Outlet />
       </main>
       <Footer />
