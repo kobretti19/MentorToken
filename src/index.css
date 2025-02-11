@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Londrina+Sketch&family=Manrope:wght@200..800&family=Oswald:wght@200..700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    body {
+      font-family: Manrope;
+    }
+  }
+}
+@layer utilities {
+  .flex-center {
+    @aplly flex items-center justify-center;
+  }
+}
