@@ -4,6 +4,10 @@ import HomePage from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import RootLayout from "./pages/Root";
+import LoginLayout from "./pages/LoginRoot";
+import LoginHome from "./pages/LoginHome";
+import SignUp from "./pages/SignUp";
+import SignupLayout from "./pages/SignupRoot";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +29,26 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+    ],
+  },
+  {
+    path: "/login",
+    element: <LoginLayout />,
+    children: [
+      {
+        path: "/login",
+        element: <LoginHome />,
+      },
+    ],
+  },
+  {
+    path: "/signup",
+    element: <SignupLayout />,
+    children: [
+      {
+        path: "/signup",
+        element: <SignUp />,
       },
     ],
   },

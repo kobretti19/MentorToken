@@ -85,7 +85,7 @@ export default function Contact() {
     );
   } else if (isDesktop) {
     return (
-      <div className=" bg-[url(/images/background-laptop.png)] flex flex-col p-12 lg:p-20 gap-6 rounded-xl lg:w-[80%] mx-auto ">
+      <div className=" bg-[url(/images/background-laptop.png)] flex flex-col p-12 lg:p-20 gap-6 rounded-xl lg:w-[95%] mx-auto ">
         <div className="flex flex-col lg:items-start items-center justify-center gap-6 ">
           <h1 className="text-3xl lg:text-4xl font-bold ">Let&apos;s Talk!</h1>
           <p className="text-xs font-thin tracking-wide text-center lg:text-start">

@@ -4,6 +4,7 @@ import laptopImg from "/logos/home-laptop.png";
 import rocketBigLogo from "/logos/rocket-big.svg";
 import screeshootImg from "/images/screenshoot.svg";
 import clockImg from "/logos/logo-clock.svg";
+import mentorTokenWhite from "/logos/mentor-token-white.svg";
 
 export {
   logomentorImg,
@@ -12,4 +13,5 @@ export {
   rocketBigLogo,
   screeshootImg,
   clockImg,
+  mentorTokenWhite,
 };

@@ -4,7 +4,7 @@ import { LOGOSABOUT, MENTORTEAM } from "../assets/data/team-profile";
 export default function About() {
   return (
     <div>
-      <div className="flex flex-col justify-center items-center gap-y-6 p-8 py-10 rounded-xl bg-[url(/images/background-laptop.png)] ">
+      <div className="flex flex-col justify-center items-center gap-y-6 p-8  py-10 rounded-xl bg-[url(/images/background-laptop.png)] ">
         <h1 className="text-3xl font-bold tracking-wide">
           Meet our team members
         </h1>
@@ -14,11 +14,11 @@ export default function About() {
         </p>
         <GetStartedButton btnText="Get in touch" />
       </div>
-      <div className="flex flex-row flex-wrap items-center justify-center">
+      <div className="flex flex-row flex-wrap justify-center items-center ">
         {MENTORTEAM.map((person) => (
           <div
             key={person.id}
-            className="flex flex-col items-center justify-center gap-y-4 w-72 p-6 px-10"
+            className="flex flex-col items-center justify-center gap-y-4 w-72  p-6 px-10"
           >
             <div>
               <img src={person.image} alt="Profile picture" />
