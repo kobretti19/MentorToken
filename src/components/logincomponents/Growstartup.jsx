@@ -19,7 +19,7 @@ export default function Growstartup() {
         <img
           src={rocketBigLogo}
           alt="Rocket Image"
-          className="absolute lg:left-[14%] top-[16%] hidden lg:block"
+          className="absolute lg:left-[14%] top-[16%] hidden lg:block w-auto"
         />
       </div>
     </div>

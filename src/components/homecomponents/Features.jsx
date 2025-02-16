@@ -3,7 +3,7 @@ import { rocketBigLogo } from "../../assets/data/logo";
 
 export default function Features() {
   return (
-    <div className="flex flex-col items-center justify-between font-thin tracking-wide gap-y-10 h-auto py-24 rounded-xl  bg-gradient-to-br from-blue-500 via-violet-600 to-indigo-400  rounden-xl  text-white  relative ">
+    <div className="flex flex-col items-center justify-between font-thin tracking-wide gap-y-10 h-auto py-24 rounded-xl  bg-gradient-to-br from-[#696cff] to-[#9574ff]  rounden-xl  text-white  relative ">
       <div className="flex flex-col items-center justify-center font-semibold lg:w-2/5  gap-y-6">
         <p className="lg:text-lg text-xl tracking-widest">FEATURES</p>
         <h1 className="text-3xl w-[88%] font-thin lg:text-4xl text-center">

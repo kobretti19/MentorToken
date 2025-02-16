@@ -8,6 +8,7 @@ import LoginLayout from "./pages/LoginRoot";
 import LoginHome from "./pages/LoginHome";
 import SignUp from "./pages/SignUp";
 import SignupLayout from "./pages/SignupRoot";
+import RegisterStart from "./pages/RegisterStart";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp />,
+      },
+      {
+        path: "/signup/registerstartup",
+        element: <RegisterStart />,
       },
     ],
   },
