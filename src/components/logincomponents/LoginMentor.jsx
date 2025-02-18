@@ -2,8 +2,49 @@ import { useNavigate } from "react-router";
 import { logomentorImg } from "../../assets/data/logo";
 import { InputsVariants } from "../../../ui/InputsVariants";
 
+import { useState } from "react";
+
 export default function LoginMentor() {
+  // const email = useSelector((state) => state?.authController.email);
+  // const password = useSelector((state) => state?.authController.password);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const navigate = useNavigate();
+  console.log(email, "email", password, "password");
+
+  const handleLogin = async () => {
+    console.log(email, password, "email,password");
+    try {
+      const loginData = await fetch(
+        "http://localhost:3000/api/v1/users/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            password,
+          }),
+        }
+      );
+
+      const data = await loginData?.json();
+      if (data) {
+        if (data?.status === "success") {
+          console.log(data?.token);
+          localStorage.setItem("token", data?.token);
+          setEmail("");
+          setPassword("");
+          navigate("/");
+        }
+      }
+      console.log(data);
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   return (
     <div className="flex flex-col items-start justify-start gap-y-8 bg-white lg:w-3/5 w-full h-screen lg:rounded-l-3xl pt-20 px-10 lg:px-52  ">
@@ -18,25 +59,39 @@ export default function LoginMentor() {
       </div>
 
       <div className="w-full flex flex-col gap-y-6">
-        <InputsVariants label="Email" placeholder="Email" />
+        <InputsVariants
+          type="email"
+          label="Email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
         <div className="space-y-2 w-full">
-          <InputsVariants label="Password" placeholder="Password" />
+          <InputsVariants
+            type="password"
+            label="Password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
           <p className="text-[#696cff] hover:text-[#703796] cursor-pointer">
             Forgot password?
           </p>
         </div>
       </div>
       <div className="flex flex-col justify-center  items-center w-full gap-y-6">
-        <button className="text-white  bg-[#696cff] px-4 py-2 w-full rounded-md hover:bg-opacity-90 easy-in-out transition-all easy-in-out hover:scale-105">
+        <button
+          onClick={() => handleLogin()}
+          className="text-white  bg-[#696cff] px-4 py-2 w-full rounded-md hover:bg-opacity-90 easy-in-out transition-all easy-in-out hover:scale-105"
+        >
           Log In
         </button>
         <p className="text-[#566a7f]">
-          Dont&apos;t have account?
+          Don&apos;t have account?
           <span
             onClick={() => navigate("/signup")}
             className="text-[#696cff] hover:cursor-pointer hover:text-[#703796] "
           >
-            {" "}
             Register.
           </span>
         </p>
@@ -44,12 +99,3 @@ export default function LoginMentor() {
     </div>
   );
 }
-
-// const Input = ({ ...props }) => {
-//   return (
-//     <input
-//       {...props}
-//       className="px-4 py-3 text-xs rounded-md w-full  border border-[#696cff] focus:outline-none focus:shadow-xl  text-[#566a7f]"
-//     />
-//   );
-// };
