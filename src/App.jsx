@@ -9,6 +9,9 @@ import LoginHome from "./pages/LoginHome";
 import SignUp from "./pages/SignUp";
 import SignupLayout from "./pages/SignupRoot";
 import RegisterStart from "./pages/RegisterStart";
+import RegisterMen from "./pages/RegisterMen";
+import DashboardLayout from "./pages/DashboardRoot";
+import MentorDashboard from "./pages/LoggedIn/MentorDashboard";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +57,20 @@ const router = createBrowserRouter([
       {
         path: "/signup/registerstartup",
         element: <RegisterStart />,
+      },
+      {
+        path: "/signup/registermentor",
+        element: <RegisterMen />,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <DashboardLayout />,
+    children: [
+      {
+        path: "/dashboard",
+        element: <MentorDashboard />,
       },
     ],
   },

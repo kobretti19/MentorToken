@@ -3,19 +3,24 @@ import { logomentorImg } from "../../assets/data/logo";
 import { checkIcon } from "../../assets/data/icons";
 import { InputsVariants } from "../../../ui/InputsVariants";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  handleChangeEmail,
+  handleChangePassword,
+} from "../../app/AuthProvider";
 
 export default function Register() {
   const [isStartupClicked, setIsStartupClicked] = useState(true);
   const [isMentorClicked, setIsMentorClicked] = useState(false);
+  const email = useSelector((state) => state.createUser.email);
+  const password = useSelector((state) => state.createUser.password);
+
+
+
+  
+  const dispatch = useDispatch();
 
   const navigate = useNavigate();
-
-  console.log(
-    isStartupClicked,
-    "----->isStartupClicked",
-    isMentorClicked,
-    "---->isMentorClicked"
-  );
 
   const handleStartUp = () => {
     setIsStartupClicked(true);
@@ -66,9 +71,20 @@ export default function Register() {
       </div>
 
       <div className="w-full flex flex-col gap-y-6">
-        <InputsVariants label="Email" placeholder="Email" />
+        <InputsVariants
+          value={email}
+          onChange={(e) => dispatch(handleChangeEmail(e.target.value))}
+          label="Email"
+          placeholder="Email"
+        />
         <div className="space-y-2 w-full">
-          <InputsVariants label="Password" placeholder="Password" />
+          <InputsVariants
+            type="password"
+            value={password}
+            onChange={(e) => dispatch(handleChangePassword(e.target.value))}
+            label="Password"
+            placeholder="Password"
+          />
         </div>
         <div className="flex flex-col items-start justify-center  font-thin text-xs text-[#8ea3b9] gap-y-2 tracking-wide">
           <p className="flex gap-x-1">

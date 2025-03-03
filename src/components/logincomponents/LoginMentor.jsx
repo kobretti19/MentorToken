@@ -5,8 +5,6 @@ import { InputsVariants } from "../../../ui/InputsVariants";
 import { useState } from "react";
 
 export default function LoginMentor() {
-  // const email = useSelector((state) => state?.authController.email);
-  // const password = useSelector((state) => state?.authController.password);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -33,11 +31,16 @@ export default function LoginMentor() {
       const data = await loginData?.json();
       if (data) {
         if (data?.status === "success") {
+          // dispatch(handleData(data.user));
+          console.log(data?.user);
           console.log(data?.token);
           localStorage.setItem("token", data?.token);
+          alert("Login successful!");
           setEmail("");
           setPassword("");
-          navigate("/");
+          navigate("/dashboard");
+        } else {
+          alert("Invalid credentials");
         }
       }
       console.log(data);
