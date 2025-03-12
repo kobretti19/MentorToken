@@ -12,6 +12,8 @@ import RegisterStart from "./pages/RegisterStart";
 import RegisterMen from "./pages/RegisterMen";
 import DashboardLayout from "./pages/DashboardRoot";
 import MentorDashboard from "./pages/LoggedIn/MentorDashboard";
+import MyStats from "./pages/LoggedIn/mystats/MyStats";
+import JobFeed from "./pages/LoggedIn/JobFeed";
 
 const router = createBrowserRouter([
   {
@@ -71,6 +73,14 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <MentorDashboard />,
+      },
+      {
+        path: "/dashboard/mystats",
+        element: <MyStats />,
+      },
+      {
+        path: "/dashboard/jobfeed",
+        element: <JobFeed />,
       },
     ],
   },

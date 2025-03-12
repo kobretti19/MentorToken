@@ -9,6 +9,12 @@ import statsIcon from "/icons/stats.svg";
 import logoutIcon from "/icons/logout.svg";
 import backIcon from "/icons/back.svg";
 import searchIcon from "/icons/search.svg";
+import clockIcon from "/icons/clock.svg";
+import inIcon from "/icons/inIcon.svg";
+import mailIcon from "/icons/mail.svg";
+import phoneIcon from "/icons/phone.svg";
+import editIcon from "/icons/edit.svg";
+import gridIcon from "/icons/layout-grid.svg";
 
 export {
   checkIcon,
@@ -22,4 +28,10 @@ export {
   logoutIcon,
   backIcon,
   searchIcon,
+  clockIcon,
+  inIcon,
+  mailIcon,
+  phoneIcon,
+  editIcon,
+  gridIcon,
 };

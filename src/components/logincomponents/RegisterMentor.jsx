@@ -69,7 +69,8 @@ export default function RegisterMentor() {
 
       console.log(data);
       if (data) {
-        if (data?.message === "success") {
+        if (data?.status === "success") {
+          alert(`Account created succussfully`);
           navigate("/login");
         }
       }

@@ -6,15 +6,13 @@ const SearchBar = () => {
   const [query, setQuery] = useState("");
 
   const handleChange = (e) => {
-    setQuery(e.target.value); // Update state with input value
+    setQuery(e.target.value);
   };
 
   const handleSearch = () => {
     console.log("Searching for:", query);
-    // Implement your search logic here
   };
 
-  // Handle the "Enter" key to trigger search
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       handleSearch();
@@ -22,7 +20,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="flex justify-start mt-6 gap-x-8 font-sans w-[100%]">
+    <div className="flex justify-start mt-10 py-2 gap-x-8 font-sans w-1/3">
       <div className="relative w-full">
         <img
           src={searchIcon}

@@ -40,7 +40,10 @@ export default function MentorSidebar() {
         }`}
       >
         <img src={statsIcon} alt="Icon Image" />
-        <Link onClick={() => dispatch(handlemyStatsMentor(true))} to="/mystats">
+        <Link
+          onClick={() => dispatch(handlemyStatsMentor(true))}
+          to="/dashboard/mystats"
+        >
           My Stats
         </Link>
       </li>
@@ -50,7 +53,10 @@ export default function MentorSidebar() {
         }`}
       >
         <img src={discIcon} alt="Icon Image" />
-        <Link onClick={() => dispatch(handlejobFeedMentor(true))} to="/jobs">
+        <Link
+          onClick={() => dispatch(handlejobFeedMentor(true))}
+          to="/dashboard/jobfeed"
+        >
           Job Feed
         </Link>
       </li>

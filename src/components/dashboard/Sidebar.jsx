@@ -11,7 +11,7 @@ export default function SidebarComponent() {
     navigate("/");
   };
   return (
-    <div className="flex flex-col w-1/6 justify-between h-screen  py-12 px-4 bg-white ">
+    <div className="flex flex-col sticky top-0 left-0  w-1/4 justify-between h-screen  py-12 px-4 bg-white ">
       <div className="flex flex-col gap-6 ">
         <div className="flex flex-row items-center gap-2 px-2  w-full relative">
           <img src={logomentorImg} alt="Logo Image Token" />

@@ -9,7 +9,6 @@ export default function LoginMentor() {
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
-  console.log(email, "email", password, "password");
 
   const handleLogin = async () => {
     console.log(email, password, "email,password");
@@ -49,6 +48,13 @@ export default function LoginMentor() {
     }
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      console.log("enter is pressed");
+      handleLogin();
+    }
+  };
+
   return (
     <div className="flex flex-col items-start justify-start gap-y-8 bg-white lg:w-3/5 w-full h-screen lg:rounded-l-3xl pt-20 px-10 lg:px-52  ">
       <div className="flex flex-col justify-start items-start gap-y-10 ">
@@ -76,6 +82,7 @@ export default function LoginMentor() {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            onKeyDown={(e) => handleKeyDown(e)}
           />
           <p className="text-[#696cff] hover:text-[#703796] cursor-pointer">
             Forgot password?
