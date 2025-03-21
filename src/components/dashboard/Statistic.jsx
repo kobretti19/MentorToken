@@ -12,17 +12,19 @@ import {
 
 export default function StatisticComponent() {
   const [data, setData] = useState([]);
-
   const userData = useSelector((state) => state.createUser.data);
 
-  console.log(userData, "jobs");
-
   useEffect(() => {
-    axios
-      .get(`http://localhost:3000/api/v1/assignments/user/${userData?._id}`)
-      .then((response) => {
-        const jobs = response.data;
+    if (!userData?._id) return;
 
+    let isMounted = true;
+
+    axios
+      .get(`http://localhost:3000/api/v1/assignments/user/${userData._id}`)
+      .then((response) => {
+        if (!isMounted) return;
+
+        const jobs = response.data;
         const filteredJobs = jobs.filter((job) => job.status !== "rejected");
 
         const monthlyStats = Array(12).fill(0);
@@ -52,11 +54,14 @@ export default function StatisticComponent() {
         setData(chartData);
       })
       .catch((error) => console.error("Error fetching data:", error));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+
+    return () => {
+      isMounted = false;
+    };
+  }, [userData?._id]);
 
   return (
-    <div className="bg-white shadow-lg rounded-xl p-4  ">
+    <div className="bg-white shadow-lg rounded-xl p-4">
       <h3 className="text-gray-800 text-md tracking-wide">STATISTICS</h3>
       <p className="text-gray-500 text-sm mb-4">
         Overall target accomplishment over the year

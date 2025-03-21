@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 import useFetchAssignments from "../../hooks/useFetchAssignments";
@@ -11,7 +11,14 @@ export default function NavbarDashboard() {
   const dispatch = useDispatch();
   const [activeTab, setActiveTab] = useState("All");
 
-  dispatch(handleAssignments(assignments));
+  // Only dispatch when assignments are fetched and avoid updates during render
+  useEffect(() => {
+    if (assignments && assignments.length > 0) {
+      setTimeout(() => {
+        dispatch(handleAssignments(assignments));
+      }, 0); // Ensure it runs after rendering completes
+    }
+  }, [assignments, dispatch]);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;

@@ -1,4 +1,4 @@
-import { Outlet } from "react-router";
+import { Outlet, useNavigate } from "react-router";
 import SidebarComponent from "../components/dashboard/Sidebar";
 import SearchBar from "../../ui/SearchBar";
 import { useEffect, useState } from "react";
@@ -8,7 +8,9 @@ import { handleData } from "../app/AuthProvider";
 export default function DashboardLayout() {
   const [user, setUser] = useState(null);
   const [error, setError] = useState("");
+
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -54,7 +56,10 @@ export default function DashboardLayout() {
       </div>
 
       {/* User Info Section */}
-      <div className="absolute top-10 right-20 flex items-center gap-3">
+      <div
+        onClick={() => navigate(`/dashboard/${user._id}`)}
+        className="absolute top-10 right-20 flex items-center gap-3"
+      >
         {user ? (
           <>
             <img

@@ -29,15 +29,20 @@ export default function LoginMentor() {
 
       const data = await loginData?.json();
       if (data) {
+        console.log(data.data.user.role, "data");
         if (data?.status === "success") {
           // dispatch(handleData(data.user));
-          console.log(data?.user);
-          console.log(data?.token);
+          console.log(data);
+
           localStorage.setItem("token", data?.token);
           alert("Login successful!");
           setEmail("");
           setPassword("");
-          navigate("/dashboard");
+          if (data?.data.user.role === "mentor") {
+            navigate("/dashboard/mentor");
+          } else if (data?.data.user.role === "startup") {
+            navigate("/dashboard/startup");
+          }
         } else {
           alert("Invalid credentials");
         }

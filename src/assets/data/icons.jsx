@@ -15,6 +15,7 @@ import mailIcon from "/icons/mail.svg";
 import phoneIcon from "/icons/phone.svg";
 import editIcon from "/icons/edit.svg";
 import gridIcon from "/icons/layout-grid.svg";
+import arrowsIcon from "/icons/arrows.svg";
 
 export {
   checkIcon,
@@ -34,4 +35,5 @@ export {
   phoneIcon,
   editIcon,
   gridIcon,
+  arrowsIcon,
 };

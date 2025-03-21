@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { gridIcon } from "../../assets/data/icons";
 import useFetch from "../../hooks/useFetch";
-import JobModal from "../../hooks/JobModal";
+import JobModal from "../../components/dashboard/JobModal";
 
 export default function JobFeed() {
   const [selectedJob, setSelectedJob] = useState(null);
@@ -22,7 +22,7 @@ export default function JobFeed() {
   };
 
   return (
-    <div className="flex flex-col my-8">
+    <div className="flex flex-col my-6">
       {/* Jobs Listing */}
       <div className="flex flex-col">
         <h2 className="font-semibold text-2xl text-[#404D61] mb-8">
