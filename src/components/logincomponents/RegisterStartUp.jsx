@@ -19,8 +19,13 @@ export default function RegisterStartUp() {
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    console.log(email, password, name, startUpName, adress, "email");
-    e.preventDefault();
+    e.preventDefault(); // Prevent default behavior in case it's inside a form
+
+    if (!email || !password || !name || !startUpName || !adress) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
     try {
       const response = await axios.post(
         "http://localhost:3000/api/v1/users/signup",
@@ -39,17 +44,14 @@ export default function RegisterStartUp() {
         }
       );
 
-      const data = response.data;
-      console.log(data);
-
-      if (data) {
-        if (data?.status === "success") {
-          alert(`Account created successfully`);
-          navigate("/login");
-        }
+      if (response.data?.status === "success") {
+        alert("Account created successfully");
+        navigate("/login");
+      } else {
+        alert(response.data?.message || "Registration failed.");
       }
-    } catch (e) {
-      console.error(e);
+    } catch (error) {
+      alert(error.response?.data?.message || "Something went wrong!");
     }
   };
 

@@ -7,6 +7,7 @@ const initialState = {
   password: "",
   data: null,
   assignments: null,
+  mentor: null,
 };
 
 export const createUserSlice = createSlice({
@@ -25,6 +26,9 @@ export const createUserSlice = createSlice({
     handleAssignments: (state, action) => {
       state.assignments = action.payload;
     },
+    handleMentorData: (state, action) => {
+      state.mentor = action.payload;
+    },
   },
 });
 
@@ -33,12 +37,14 @@ export const {
   handleChangePassword,
   handleData,
   handleAssignments,
+  handleMentorData,
   assignments,
   data,
   firstName,
   lastName,
   email,
   password,
+  mentor,
 } = createUserSlice.actions;
 
 export default createUserSlice.reducer;

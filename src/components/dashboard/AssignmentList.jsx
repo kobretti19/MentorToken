@@ -11,6 +11,7 @@ const AssignmentList = ({ assignments, activeTab }) => {
       done: "bg-[#ebf6eb] text-[#31aa27]",
       rejected: "bg-[#fff0f3] text-[#f2076a]",
       "in progress": "bg-[#e7e7ff] text-[#696cff]",
+      canceled: "bg-[#fff0f3] text-[#f2076a]",
     };
 
     return statusColors[status] || "bg-gray-500 text-white";
@@ -27,7 +28,7 @@ const AssignmentList = ({ assignments, activeTab }) => {
   }, [assignments, activeTab]);
 
   return (
-    <div className="flex flex-col gap-y-4">
+    <div className="flex flex-col gap-y-4 ">
       {filteredAssignments.length > 0 ? (
         filteredAssignments.map((job) => (
           <div

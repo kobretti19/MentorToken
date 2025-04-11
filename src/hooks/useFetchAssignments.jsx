@@ -16,16 +16,18 @@ const useFetchAssignments = () => {
     if (!user?._id) return;
 
     const fetchAssignments = async () => {
-      setLoading(true); // Ensure this runs before the try block
+      setLoading(true);
 
       try {
         const response = await axios.get(
           `http://localhost:3000/api/v1/assignments/user/${user._id}`
         );
+        const data = response.data || [];
+        const assignmentData = data.filter(
+          (assignment) => assignment.acceptedStatus !== "canceled"
+        );
+        console.log(assignmentData, "assignmentData");
 
-        const assignmentData = response.data || []; // Ensure it's an array
-
-        // Use user.role instead of assignmentData.role
         if (user.role === "mentor") {
           const jobsApplied = assignmentData.filter(
             (job) => job.applicationType === "mentorToCompany"

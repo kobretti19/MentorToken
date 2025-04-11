@@ -1,9 +1,19 @@
+import { useLocation } from "react-router";
+
 // eslint-disable-next-line react/prop-types
 const NavbarTabs = ({ activeTab, setActiveTab }) => {
-  const tabs = ["All", "Done", "Rejected", "In Progress"];
+  const location = useLocation();
+
+  const isActive =
+    location.pathname.split("/")[2] === "mentor" ||
+    location.pathname.split("/")[2] === "startup";
+
+  const tabs = isActive
+    ? ["All", "Done", "Rejected", "In Progress"]
+    : ["All", "Done", "Canceled", "In Progress"];
 
   return (
-    <nav className="flex flex-row justify-start gap-6 w-max border-b-2 border-[#D3D3FF] mb-4">
+    <nav className="flex flex-row justify-start gap-6 w-max border-b-2 border-[#D3D3FF] mb-4 ">
       {tabs.map((tab) => (
         <button
           key={tab}

@@ -6,6 +6,8 @@ import { useSelector } from "react-redux";
 export default function JobModal({ job, onClose, modal }) {
   const userData = useSelector((state) => state.createUser.data);
 
+  console.log(job, "job");
+
   const handleApplyClick = async (jobId, companyId, mentorId) => {
     try {
       const applicationType = "mentorToCompany";
@@ -42,19 +44,26 @@ export default function JobModal({ job, onClose, modal }) {
         </button>
 
         {/* Job Details */}
-        <div className="text-center">
-          {/* <img src={job?.companyLogo} alt={job?.title} className="w-16 h-16 mx-auto mb-4 rounded-full" /> */}
-          <h2 className="text-xl font-bold text-[#404D61]">{job?.title}</h2>
-          <h3 className="text-lg font-semibold text-[#566A7F] mt-2">
-            New Job Offer
-          </h3>
-          <p className="text-sm text-[#757D8A] mt-4">{job?.description}</p>
+        <div className="flex flex-col items-start gap-y-5 p-4">
+          <div className="flex flex-row  gap-x-4 items-start">
+            <img
+              src={`http://127.0.0.1:3000/${job.companyId.photo}`}
+              alt={job?.title}
+              className="w-16 h-16 mb-4 rounded-full"
+            />
+            <h2 className="text-md mt-2 font-[600] text-[#404D61] w-1/2">
+              {job?.title}
+            </h2>
+          </div>
+
+          <h3 className="text-md font-[600]  text-[#566A7F] ">New Job Offer</h3>
+          <p className="text-sm text-[#757D8A]">{job?.description}</p>
 
           <button
             onClick={() =>
               handleApplyClick(job._id, job.companyId, userData?._id)
             }
-            className="bg-[#696cff] text-white px-6 py-2 rounded-lg mt-4"
+            className="bg-[#696cff] text-white px-6 py-2 text-sm rounded-lg mt-4"
           >
             Apply
           </button>

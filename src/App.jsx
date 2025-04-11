@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 import HomePage from "./pages/Home";
 import About from "./pages/About";
@@ -13,10 +14,13 @@ import RegisterMen from "./pages/RegisterMen";
 import DashboardLayout from "./pages/DashboardRoot";
 import MentorDashboard from "./pages/LoggedIn/MentorDashboard";
 import MyStats from "./pages/LoggedIn/mystats/MyStats";
-import JobFeed from "./pages/LoggedIn/JobFeed";
+import JobFeed from "./pages/LoggedIn/mentor/JobFeed";
 import StartUpDashboard from "./pages/LoggedIn/StartUpDashboard";
 import Mentors from "./pages/LoggedIn/Mentors";
 import Profile from "./pages/LoggedIn/Profile";
+import ProfileMentor from "./pages/LoggedIn/ProfileMentor";
+import Jobs from "./pages/LoggedIn/startup/Jobs";
+import ResetPassword from "./pages/ResetPassword";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +48,11 @@ const router = createBrowserRouter([
     ],
   },
   {
+    path: "/resetPassword/:token",
+    element: <ResetPassword />,
+    children: [{ path: "/resetPassword/:token", element: <ResetPassword /> }],
+  },
+  {
     path: "/dashboard",
     element: <DashboardLayout />,
     children: [
@@ -51,15 +60,21 @@ const router = createBrowserRouter([
       { path: "mentor", element: <MentorDashboard /> },
       { path: "startup", element: <StartUpDashboard /> },
       { path: "mentors", element: <Mentors /> },
-      { path: "mentors/:user", element: <Profile /> },
+      { path: "mentors/:user", element: <ProfileMentor /> },
       { path: "mystats", element: <MyStats /> },
       { path: "jobfeed", element: <JobFeed /> },
+      { path: "jobs", element: <Jobs /> },
     ],
   },
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <Toaster />
+      <RouterProvider router={router} />;
+    </>
+  );
 }
 
 export default App;

@@ -16,6 +16,12 @@ import phoneIcon from "/icons/phone.svg";
 import editIcon from "/icons/edit.svg";
 import gridIcon from "/icons/layout-grid.svg";
 import arrowsIcon from "/icons/arrows.svg";
+import plusIcon from "/icons/plus.svg";
+import statsColorIcon from "/icons/statsColor.svg";
+import dashboardColorIcon from "/icons/dashboardColor.svg";
+import discColorIcon from "/icons/discColor.svg";
+import combinedShapeIcon from "/icons/combinedShape.svg";
+import profileColorIcon from "/icons/profileColor.svg";
 
 export {
   checkIcon,
@@ -36,4 +42,10 @@ export {
   editIcon,
   gridIcon,
   arrowsIcon,
+  plusIcon,
+  statsColorIcon,
+  dashboardColorIcon,
+  discColorIcon,
+  combinedShapeIcon,
+  profileColorIcon,
 };

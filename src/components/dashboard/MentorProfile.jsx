@@ -5,6 +5,7 @@ import { inIcon } from "../../assets/data/icons";
 import { mailIcon } from "../../assets/data/icons";
 import { phoneIcon } from "../../assets/data/icons";
 import { editIcon } from "../../assets/data/icons";
+import Button from "../../../ui/Button";
 
 export default function MentorProfile({ userData }) {
   const [name, setName] = useState(userData?.name || "");
@@ -55,7 +56,7 @@ export default function MentorProfile({ userData }) {
     <div className="flex flex-col items-start gap-6  w-full">
       <div className="flex flex-row justify-start gap-6 w-full h-auto">
         {/* Profile Card */}
-        <div className="flex flex-col items-start gap-2 py-6 px-5 shadow-md bg-white rounded-xl text-md text-gray-700 w-1/6">
+        <div className="flex flex-col items-start gap-2 py-6 px-5 shadow-md bg-white rounded-xl text-md text-gray-700 w-1/5">
           <div className="flex items-center justify-center w-full">
             <label htmlFor="photo-upload" className="cursor-pointer">
               <img
@@ -155,12 +156,9 @@ export default function MentorProfile({ userData }) {
 
       {/* Save/Cancel Button */}
       {isEditing && (
-        <button
-          onClick={handleSave}
-          className="mt-2 p-2 bg-blue-500 text-white rounded-md"
-        >
+        <Button btnText={"Save"} onClick={handleSave}>
           Save
-        </button>
+        </Button>
       )}
     </div>
   );

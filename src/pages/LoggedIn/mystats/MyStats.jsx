@@ -15,7 +15,7 @@ export default function MyStats() {
 
       <div className="flex flex-row items-start justify-start h-1/3 w-full gap-6">
         <div className="w-2/4 ">
-          <h2 className="font-semibold text-xl text-[#404D61] mb-6">
+          <h2 className="font-semibold text-2xl text-[#404D61] mb-6">
             Performance Over Time
           </h2>
           <div className="bg-white rounded-xl h-64">
@@ -23,7 +23,7 @@ export default function MyStats() {
           </div>
         </div>
         <div className="w-1/3">
-          <h2 className="font-semibold text-xl text-[#404D61] mb-2">
+          <h2 className="font-semibold text-2xl text-[#404D61] mb-2">
             Quick Overview
           </h2>
           <div className="bg-white h-96 ">

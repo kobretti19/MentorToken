@@ -8,11 +8,15 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 
 export default function RegisterMentor() {
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [adress, setAddress] = useState("");
+  const [name, setName] = useState(null);
+  const [phone, setPhone] = useState(null);
+  const [adress, setAddress] = useState(null);
   const [photo, setPhoto] = useState(null);
   const [avatarURL, setAvatarURL] = useState(uploadProfile);
+  const [nameError, setNameError] = useState("");
+  const [phoneError, setPhoneError] = useState("");
+  const [addressError, setAddressError] = useState("");
+
   const email = useSelector((state) => state.createUser.email);
   const password = useSelector((state) => state.createUser.password);
 
@@ -44,7 +48,24 @@ export default function RegisterMentor() {
   formData.append("name", name);
 
   const handleUpload = async () => {
-    console.log(email, password, "email,password");
+    let isValid = true;
+
+    setNameError("");
+    setPhoneError("");
+    setAddressError("");
+
+    if (!name) {
+      setNameError("Name is required");
+      isValid = false;
+    }
+    if (!phone) {
+      setPhoneError("Phone number is required");
+      isValid = false;
+    }
+    if (!adress) {
+      setAddressError("Address is required.");
+    }
+    if (!isValid) return;
 
     try {
       const loginData = await fetch(
@@ -93,11 +114,7 @@ export default function RegisterMentor() {
           alt="Upload Icon"
           className="w-[121.76px] h-[121.76px] rounded-full"
         />
-        {/* <form
-          id="form"
-          encType="multipart/form-data"
-          className="flex flex-col  gap-8"
-        > */}
+
         <button
           type="submit"
           className="flex-center absolute bottom-10 -right-8  rounded-full"
@@ -119,16 +136,19 @@ export default function RegisterMentor() {
       </div>
 
       <div className="w-full flex flex-col gap-y-6 text-[#566a7f]">
+        {nameError && <p className="text-red-500 text-sm">{nameError}</p>}
         <InputsVariants
           onChange={(e) => setName(e.target.value)}
           label="Mentor Name"
           placeholder="Name and surname"
         />
+        {phoneError && <p className="text-red-500 text-sm">{phoneError}</p>}
         <InputsVariants
           onChange={(e) => setPhone(e.target.value)}
           label="Phone"
           placeholder="Phone"
         />
+        {addressError && <p className="text-red-500 text-sm">{addressError}</p>}
         <InputsVariants
           onChange={(e) => setAddress(e.target.value)}
           label="Address"

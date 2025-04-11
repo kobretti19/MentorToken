@@ -1,8 +1,9 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { laptopImg } from "../../assets/data/logo";
 import GetStartedButton from "../../../ui/GetStartedButton";
 
 export default function LaptopDetail() {
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col lg:flex-row  h-[auto] rounded-xl bg-[url(/images/background-laptop.png)] relative   ">
       <div className="flex-1 p-6 lg:pt-16 space-y-6 w-full ">
@@ -18,7 +19,10 @@ export default function LaptopDetail() {
           to drive the success of the ventures they support.
         </p>
         <div className="flex items-center gap-4 lg:pt-10">
-          <GetStartedButton btnText="Get started" />
+          <GetStartedButton
+            onClick={() => navigate("/signup")}
+            btnText="Get started"
+          />
           <Link className="hover:text-[#696CFF] hover:scale-110 transition-all easy-in-out">
             Get in Touch
           </Link>

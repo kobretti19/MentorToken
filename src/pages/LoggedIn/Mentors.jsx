@@ -26,7 +26,7 @@ export default function Mentors() {
   }, []);
 
   return (
-    <div className="flex flex-row lg:justify-start w-full gap-10 items-center mt-20">
+    <div className="flex flex-row lg:justify-start w-full gap-10 items-start mt-10">
       <RenderMentors data={users} key={users} />
       <QuickOverview />
     </div>

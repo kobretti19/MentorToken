@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  dashboardMentor: true,
+  dashboardMentor: false,
   myStats: false,
   jobFeed: false,
 };
