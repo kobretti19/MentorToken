@@ -1,11 +1,13 @@
 import useFetchAssignments from "../../hooks/useFetchAssignments";
-import useFetch from "../../hooks/useFetch";
+import useFetchToken from "../../hooks/useFetchToken";
 
 export default function OverviewComponent() {
   const { applied, totalJobs, loading, error, finished } =
     useFetchAssignments();
 
-  const { data } = useFetch("http://127.0.0.1:3000/api/v1/jobs");
+  const token = localStorage.getItem("token");
+
+  const { data } = useFetchToken("http://127.0.0.1:3000/api/v1/jobs", token);
 
   console.log(data, "data");
 

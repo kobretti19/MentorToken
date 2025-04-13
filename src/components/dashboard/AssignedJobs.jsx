@@ -4,7 +4,7 @@ import NavbarDashboard from "./NavbarDashboard";
 export default function AssignedJobs() {
   const { assignments, loading, error } = useFetchAssignments();
   return (
-    <div className="flex flex-col h-screen  justify-start  mt-6 text-[#566a7f] w-[45%]">
+    <div className="flex flex-col h-screen  justify-start   text-[#566a7f] w-[45%]">
       <h1 className="font-semibold text-2xl text-[#566a7f] mb-6 ">
         Assigned Jobs
       </h1>

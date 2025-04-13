@@ -7,7 +7,7 @@ export default function QuickOverview() {
     token
   );
 
-  console.log(data, "data");
+  console.log(data, "total");
 
   if (loading)
     return (

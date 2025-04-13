@@ -43,7 +43,7 @@ export default function AplicationSent() {
 
   return (
     <div className="flex flex-col   justify-start h-[50%]  mt-6 text-[#566a7f] w-full gap-y-4">
-      <h1 className="text-[24px] py-3 text-[500] font-semibold ">
+      <h1 className="text-[24px] text-[#566a7f] py-3 text-[500] font-semibold ">
         Applications sent{" "}
       </h1>
       <h1 className=" mb-4 pb-2">Jobs you have applied to</h1>

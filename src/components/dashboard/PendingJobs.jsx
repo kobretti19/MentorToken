@@ -71,8 +71,8 @@ export default function PendingJobs() {
   if (error) return <div className="text-red-500">No Pending Jobs found</div>;
 
   return (
-    <div className="flex flex-col h-[30%] overflow-y-auto justify-start py-4 text-[#566a7f] w-full gap-y-4">
-      <h1 className="text-2xl text-[#404D61] font-semibold">Pending Jobs</h1>
+    <div className="flex flex-col h-[40%] overflow-y-auto justify-start pb-4 text-[#566a7f] w-full gap-y-4">
+      <h1 className="text-2xl text-[#566a7f] font-semibold">Pending Jobs</h1>
       <p className="mb-4">Jobs offered from your startup</p>
 
       <div className="flex flex-col h-full w-full gap-y-4 overflow-y-auto">
@@ -80,7 +80,7 @@ export default function PendingJobs() {
           assignments.map((job) => (
             <div
               key={job._id}
-              className="flex flex-row justify-between px-6 py-4 items-center h-[62px] w-full bg-white rounded-xl shadow-sm"
+              className="flex flex-row justify-between px-6 py-4 items-center h-[62px] w-full bg-white shadow-sm"
             >
               <p>{job?.jobId?.title || "Untitled Job"}</p>
               <div className="flex flex-row gap-2">
