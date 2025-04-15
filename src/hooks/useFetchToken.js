@@ -1,51 +1,29 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
+import axios from "axios";
 
-export default function useFetchToken(url, token, options = {}) {
+export default function useFetchToken(url, token) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  const fetchData = useCallback(async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get(url, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setData(response.data);
+      setError(null);
+    } catch (err) {
+      setError(err);
+    } finally {
+      setLoading(false);
+    }
+  }, [url, token]);
 
   useEffect(() => {
-    if (!url || !token) return;
-
-    const controller = new AbortController();
-    const { signal } = controller;
-
-    const fetchData = async () => {
-      setLoading(true);
-      setError(null);
-
-      try {
-        const response = await fetch(url, {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-          signal,
-          ...options,
-        });
-
-        if (!response.ok) {
-          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-        }
-
-        const result = await response.json();
-        setData(result);
-      } catch (err) {
-        if (err.name !== "AbortError") {
-          setError(err.message);
-        }
-      } finally {
-        setLoading(false);
-      }
-    };
-
     fetchData();
+  }, [fetchData]);
 
-    return () => controller.abort();
-  }, [url, token, JSON.stringify(options)]);
-
-  return { data, error, loading };
+  return { data, error, loading, refetch: fetchData };
 }

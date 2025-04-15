@@ -15,7 +15,6 @@ export default function RenderMentors({ data }) {
 
   const handleNavigate = (user) => {
     navigate(`/dashboard/mentors/${user}`);
-    window.location.reload();
   };
 
   return (

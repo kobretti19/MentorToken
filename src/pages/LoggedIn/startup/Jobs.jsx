@@ -11,9 +11,7 @@ export default function Jobs() {
   const userData = useSelector((state) => state.createUser.data);
   const token = localStorage.getItem("token");
 
-  console.log(viewJobModal, "viewJobModal");
-
-  const { data, error, loading } = useFetchToken(
+  const { data, error, loading, refetch } = useFetchToken(
     userData?._id
       ? `http://127.0.0.1:3000/api/v1/jobs/user/${userData._id}`
       : null,
@@ -124,14 +122,21 @@ export default function Jobs() {
         <CreateJobModal
           modal={createJobModal}
           startUp={userData?._id}
-          onClose={() => setCreateJobModal(null)}
+          onClose={() => {
+            setCreateJobModal(null);
+            refetch();
+          }}
         />
       )}
 
+      {/* View Job Modal */}
       {viewJobModal && (
         <ViewJobModal
           job={viewJobModal}
-          onClose={() => setViewJobModal(null)}
+          onClose={() => {
+            setViewJobModal(null);
+            refetch();
+          }}
         />
       )}
     </div>
