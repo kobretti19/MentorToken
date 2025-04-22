@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@fontsource-variable/nunito-sans": "^5.1.1",
     "@material-tailwind/react": "^2.1.10",
     "@mui/icons-material": "^6.4.6",

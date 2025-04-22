@@ -12,8 +12,6 @@ export default function PendingJobOffersComponent() {
   const mentorData = useSelector((state) => state.createUser.mentor);
   const data = mentorData?.data.data;
 
-  console.log(userData, "userData");
-
   useEffect(() => {
     if (!data?._id) return;
 
@@ -41,8 +39,6 @@ export default function PendingJobOffersComponent() {
     fetchAssignments();
   }, [data]);
 
-  console.log(assignments, "assignments");
-
   const handleClick = async (acceptedStatus, jobId, mentorId, assignmentId) => {
     try {
       const response = await fetch(
@@ -67,6 +63,7 @@ export default function PendingJobOffersComponent() {
         setAssignments((prevAssignments) =>
           prevAssignments.filter((job) => job._id !== assignmentId)
         );
+        window.location.reload();
       } else {
         console.error("Failed to update job:", data);
       }

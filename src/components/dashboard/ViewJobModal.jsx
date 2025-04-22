@@ -2,6 +2,7 @@
 import { useEffect } from "react";
 
 export default function ViewJobModal({ job, onClose }) {
+  console.log(job);
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === "Escape") {
@@ -32,7 +33,6 @@ export default function ViewJobModal({ job, onClose }) {
         >
           ✕
         </button>
-
         {/* Job Details */}
         <div className="flex flex-col items-start gap-y-5 p-4">
           <div className="flex flex-row gap-x-4 items-start">
@@ -54,6 +54,28 @@ export default function ViewJobModal({ job, onClose }) {
             New Job Offer
           </h3>
           <p className="text-sm text-[#757D8A]">{job?.description}</p>
+        </div>
+        <div className="flex flex-col p-4">
+          {[
+            ...new Map(
+              job.assignments?.map((a) => [a.mentorId?._id, a])
+            ).values(),
+          ].map((assignment, index) =>
+            assignment.mentorId?.photo ? (
+              <div
+                className="flex flex-row justify-start items-center gap-x-2 mb-2"
+                key={index}
+              >
+                <img
+                  src={`http://127.0.0.1:3000/${assignment.mentorId.photo}`}
+                  alt="Applicant"
+                  className="w-12 h-12 rounded-full border-2 border-white"
+                  loading="lazy"
+                />
+                <p>{assignment?.mentorId?.name}</p>
+              </div>
+            ) : null
+          )}
         </div>
       </div>
     </div>

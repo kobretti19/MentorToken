@@ -154,7 +154,7 @@ export default function ProfileMentor() {
         </div>
         <div className="flex flex-col gap-y-6">
           <PendingJobOffersComponent />
-          <PendingJobsStartUp mentorId={mentorId} />
+          <PendingJobsStartUp mentorId={mentorId} key={assignments} />
         </div>
       </div>
 

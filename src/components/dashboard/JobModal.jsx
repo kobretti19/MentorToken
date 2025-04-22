@@ -24,7 +24,6 @@ export default function JobModal({ job, onClose, modal }) {
 
       console.log("Application successful:", response.data);
       modal(null);
-      alert("Application submitted successfully!");
     } catch (error) {
       console.error("Error applying for job:", error);
       alert("Failed to apply. Please try again.");

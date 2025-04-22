@@ -58,6 +58,7 @@ export default function PendingJobs() {
         setAssignments((prev) =>
           prev.filter((job) => job._id !== assignmentId)
         );
+        window.location.reload();
       } else {
         console.error("Failed to update job:", result?.message || result);
       }

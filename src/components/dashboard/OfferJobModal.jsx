@@ -37,7 +37,6 @@ export default function OfferJobModalComponent({
         }
       );
 
-      // Assign job to mentor
       await axios.post(
         "http://127.0.0.1:3000/api/v1/assignments",
         {
@@ -51,11 +50,10 @@ export default function OfferJobModalComponent({
         }
       );
 
-      // Reset and close modal
       setTitle("");
       setDescription("");
-      alert("Job offer and assignment submitted successfully!");
       onClose();
+      window.location.reload();
     } catch (error) {
       console.error("Error offering job:", error);
       alert("Failed to send job offer. Please try again.");

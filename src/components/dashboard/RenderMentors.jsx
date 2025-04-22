@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
 import { useNavigate } from "react-router";
 import { inIcon } from "../../assets/data/icons";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { clearSearch } from "../../app/searchQuery";
 
 export default function RenderMentors({ data }) {
   const getRandomRating = () => Math.floor(Math.random() * 5) + 1;
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const searchQuery =
     useSelector((state) => state.searchQuery.searchUser) || "";
 
@@ -14,6 +16,9 @@ export default function RenderMentors({ data }) {
   );
 
   const handleNavigate = (user) => {
+    if (searchQuery) {
+      dispatch(clearSearch());
+    }
     navigate(`/dashboard/mentors/${user}`);
   };
 

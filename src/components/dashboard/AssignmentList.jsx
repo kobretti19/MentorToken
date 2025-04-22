@@ -17,7 +17,6 @@ const AssignmentList = ({ assignments, activeTab }) => {
     return statusColors[status] || "bg-gray-500 text-white";
   };
 
-  // Filter assignments based on selected tab
   const filteredAssignments = useMemo(() => {
     if (activeTab === "All") return assignments;
     // eslint-disable-next-line react/prop-types

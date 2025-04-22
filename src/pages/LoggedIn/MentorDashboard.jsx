@@ -4,7 +4,7 @@ import AplicationSent from "../../components/dashboard/AplicationSent";
 
 export default function MentorDashboard() {
   const dashBoardRender = (
-    <div className="flex flex-row justify-start  gap-10 items-start w-full pt-6">
+    <div className="flex flex-row justify-start  gap-10 items-start w-full pt-10">
       <AssignedJobs />
       <div className="flex flex-col h-screen justify-start items-center text-[#566a7f] w-[40%] mr-10 gap-y-4">
         <PendingJobs />

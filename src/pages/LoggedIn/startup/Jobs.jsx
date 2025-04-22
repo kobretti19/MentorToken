@@ -84,8 +84,12 @@ export default function Jobs() {
               {/* Applicants List */}
               <div className="flex flex-col items-center gap-2">
                 <div className="flex -space-x-2">
-                  {job.assignments
-                    ?.slice(0, 3)
+                  {[
+                    ...new Map(
+                      job.assignments.map((a) => [a.mentorId?._id, a])
+                    ).values(),
+                  ]
+                    .slice(0, 3)
                     .map((assignment, index) =>
                       assignment.mentorId?.photo ? (
                         <img

@@ -44,7 +44,6 @@ export default function MentorProfile({ userData }) {
           },
         }
       );
-      alert("Profile updated");
       console.log("Profile updated:", response.data);
       setIsEditing(false);
     } catch (error) {
