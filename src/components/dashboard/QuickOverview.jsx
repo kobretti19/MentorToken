@@ -1,3 +1,4 @@
+import ErrorBlock from "../../../ui/ErrorBlock";
 import useFetchToken from "../../hooks/useFetchToken";
 
 export default function QuickOverview() {
@@ -17,11 +18,7 @@ export default function QuickOverview() {
     );
 
   if (error)
-    return (
-      <div className="flex justify-center items-center h-screen text-lg text-red-600">
-        Error: {error}
-      </div>
-    );
+    return <ErrorBlock title="No Data available" message={error.message} />;
 
   return (
     <div className="flex flex-col w-full md:w-96 gap-y-4 justify-center mt-10">

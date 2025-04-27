@@ -23,7 +23,7 @@ export default function MyStats() {
           </div>
         </div>
         <div className="w-1/3">
-          <h2 className="font-semibold text-2xl text-[#404D61] mb-2">
+          <h2 className="font-semibold text-2xl text-[#404D61] mb-2 ml-4">
             Quick Overview
           </h2>
           <div className="bg-white h-96 ">

@@ -74,9 +74,9 @@ export default function JobFeed() {
             </button>
           </div>
 
-          <div className="flex flex-row gap-4 relative">
+          <div className="flex flex-row gap-4 relative ">
             {/* Filter Dropdown */}
-            <div className="relative">
+            <div className="relative ">
               <div
                 onClick={() => setShowFilterMenu(!showFilterMenu)}
                 className="flex flex-row justify-around items-center space-x-2 px-4 bg-white rounded-xl cursor-pointer"

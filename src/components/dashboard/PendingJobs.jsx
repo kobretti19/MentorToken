@@ -72,7 +72,7 @@ export default function PendingJobs() {
   if (error) return <div className="text-red-500">No Pending Jobs found</div>;
 
   return (
-    <div className="flex flex-col h-[40%] overflow-y-auto justify-start pb-4 text-[#566a7f] w-full gap-y-4">
+    <div className="flex flex-col h-[35%] overflow-y-auto justify-start pb-4 text-[#566a7f] w-full gap-y-4 mt-4">
       <h1 className="text-2xl text-[#566a7f] font-semibold">Pending Jobs</h1>
       <p className="mb-4">Jobs offered from your startup</p>
 
